@@ -1,0 +1,9 @@
+{
+    "support": [
+        "jpg", "jpeg", "png"
+    ],
+    "size": {
+        "s": [40, 40]
+    },
+    "domain": "http://localhost:3434"
+}
