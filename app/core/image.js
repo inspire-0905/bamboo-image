@@ -52,7 +52,7 @@ Im.prototype.upload = function(suffix, content, callback) {
 };
 
 
-var im = new Im():
+var im = new Im();
 
 im.on('resize', function(imageName) {
   var that = this;

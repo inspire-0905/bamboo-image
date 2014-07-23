@@ -2,12 +2,14 @@
  * Image routers
  */
 
-var im = require('./core/image');
+var im = require('../core/image');
 var config = require('../../config/config.json');
 
 exports.upload = function(req, res, next) {
+  console.log(req.files);
   var filename = req.params.filename;
   var tmp = filename.split('.');
+  
 
   if (tmp.length === 0 || config.support.indexOf(tmp[1]) === -1) {
     res.send(400, {msg: 'unsupport file format'});
@@ -24,6 +26,7 @@ exports.upload = function(req, res, next) {
       }
       next();
     });
+    next();
   }
 };
 
