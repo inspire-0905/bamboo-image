@@ -35,8 +35,8 @@ Im.prototype.upload = function(suffix, content, callback) {
     if (err) {
       return callback(err, null);
     } else {
-      //that.emit('resize', imageName);
-      console.log(filepath);
+      that.emit('resize', imageName);
+
       gm(filepath)
       .size(function(err, size) {
         if (err) {
@@ -90,7 +90,7 @@ im.on('resize', function(imageName) {
     tasks.push(tmp);
   }
 
-  async.series(
+  async.parallel(
     tasks,
     function(err, results) {
       if (err) {

@@ -21,7 +21,7 @@ exports.upload = function(req, res, next) {
         next();
       } else {
         var image = req.params.image;
-        var imgCnt = new Buffer(image, 'base64').toString('binary');
+        var imgCnt = new Buffer(image, 'base64');
 
         im.upload(tmp[1], imgCnt, function(err, meta) {
           if (err) {
