@@ -11,7 +11,11 @@ var fs = require('fs');
 var gm = require('gm');
 
 function Im() {
-  this.imgDir = '../../image';
+  var root = __dirname.split('/');
+  root = root.slice(0, -2);
+  root.push('images');
+  this.imgDir = root.join('/');
+
   events.EventEmitter.call(this);
 }
 
@@ -31,11 +35,12 @@ Im.prototype.upload = function(suffix, content, callback) {
     if (err) {
       return callback(err, null);
     } else {
-      that.emit('resize', imageName);
-
+      //that.emit('resize', imageName);
+      console.log(filepath);
       gm(filepath)
       .size(function(err, size) {
         if (err) {
+          console.log(err);
           return callback(err, null);
         } else {
           var meta = {};
@@ -63,7 +68,7 @@ im.on('resize', function(imageName) {
   var tmp = null;
   var outName = null;
   var tasks = [];
-  var target = that.imgDir + '/' + imageNmae;
+  var target = that.imgDir + '/' + imageName;
   var fileinfo = imageName.split('.');
 
   for (var i = 0; i < keys.length; i++) {
@@ -85,7 +90,7 @@ im.on('resize', function(imageName) {
     tasks.push(tmp);
   }
 
-  async.parallel(
+  async.series(
     tasks,
     function(err, results) {
       if (err) {

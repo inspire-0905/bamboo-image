@@ -1,5 +1,13 @@
 {
     "support": [
         "jpg", "jpeg", "png"
-    ]
+    ],
+    "size": {
+        "s": [40, 40]
+    },
+    "domain": "http://localhost:3434",
+    "content-type": {
+        "image/jpeg": "jpg",
+        "image/x-png": "png"
+    }
 }

@@ -18,7 +18,8 @@
     "restify": "*",
     "bunyan": "*",
     "gm": "*",
-    "async": "*"
+    "async": "*",
+    "request": "*"
   },
   "devDependencies": {
     "mocha": "*"
