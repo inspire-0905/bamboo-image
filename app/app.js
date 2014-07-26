@@ -15,8 +15,8 @@ var log = bunyan.createLogger({
 
 
 var server = restify.createServer({
-	name: 'bamboo-image',
-	log: log
+  name: 'bamboo-image',
+  log: log
 });
 
 // plugin
