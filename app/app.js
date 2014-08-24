@@ -26,7 +26,11 @@ server.use(restify.bodyParser({
 }));
 server.use(restify.queryParser());
 server.use(restify.gzipResponse());
-server.use(restify.CORS());
+server.use(restify.fullResponse());
+server.use(restify.CORS({
+  origins: ['*'],
+  headers: ['Content-Type,Accept,X-Requested-With,Authorization']
+}));
 
 
 // Register handlers
